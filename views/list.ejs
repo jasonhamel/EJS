@@ -4,17 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day of the Week</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1>Today is: <%= dayOfWeek %>!</h1>
-    <ul>
-      <% for (let i = 0; i < todoList.length; i++) { %>
-        <li><%= todoList[i] %></li>
-      <% } %>
-    </ul>
-    <form class="" action"/" method="post">
-        <input type="text" name="nextItem">
-        <button type="submit" name="button">Add Task</button>
-    </form>
+    <div class="box" id="heading">
+      <h1>Today is: <%= dayOfWeek %>!</h1>
+    </div>
+    <div class="box">
+        <% for (let i = 0; i < todoList.length; i++) { %>
+          <div class="item">
+            <input type="checkbox">
+            <p><%= todoList[i] %><p>
+          </div>
+        <% } %>
+        <form class="item" action"/" method="post">
+          <input type="text" name="nextItem" placeholder="New Item" autocomplete="off">
+          <button type="submit" name="button">+</button>
+        </form>
+    </div>
+    
+    
   </body>
 </html>
