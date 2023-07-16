@@ -6,10 +6,15 @@
     <title>Day of the Week</title>
   </head>
   <body>
-    <% if (dayOfWeek === "Saturday" || dayOfWeek === "Sunday") { %>
-    <h1 style="color: purple">Today is <%= dayOfWeek %>!</h1>
-    <% } else { %>
-    <h1 style="color: blue">Today is <%= dayOfWeek %>!</h1>
-    <% } %>
+    <h1>Today is: <%= dayOfWeek %>!</h1>
+    <ul>
+      <% for (let i = 0; i < todoList.length; i++) { %>
+        <li><%= todoList[i] %></li>
+      <% } %>
+    </ul>
+    <form class="" action"/" method="post">
+        <input type="text" name="nextItem">
+        <button type="submit" name="button">Add Task</button>
+    </form>
   </body>
 </html>
