@@ -7,6 +7,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 let items = [];
+let workItems = [];
 
 app.get("/", function (req, res) {
   let today = new Date();
@@ -16,13 +17,29 @@ app.get("/", function (req, res) {
     month: "long",
   };
   let day = today.toLocaleString("en-US", options);
-  res.render("list", { dayOfWeek: day, todoList: items });
+  res.render("list", { listTitle: day, todoList: items });
+});
+
+app.get("/work", function (req, res) {
+  res.render("list", { listTitle: "Work", todoList: workItems });
+});
+
+app.get("/about", function (req, res) {
+  res.render("about");
 });
 
 app.post("/", function (req, res) {
   let item = req.body.nextItem;
+  console.log(req.body);
   items.push(item);
   res.redirect("/");
+});
+
+app.post("/work", function (req, res) {
+  let item = req.body.nextItem;
+  console.log(req.body);
+  workItems.push(item);
+  res.render("list", { listTitle: "Work", todoList: workItems });
 });
 
 app.listen(3000, function () {
